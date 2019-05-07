@@ -1,0 +1,237 @@
+{
+    "title": "ServiceFabricManagementClient",
+    "description": "Azure Service Fabric Resource Provider API Client",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/servicefabric-cluster/2018-02-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists all of the available Service Fabric resource provider API operations.",
+            "description": "Get the list of available Service Fabric resource provider API operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clusters_List": {
+            "main": "./lib/actions/Clusters_List.js",
+            "title": "Gets the list of Service Fabric cluster resources created in the specified subscription.",
+            "description": "Gets all Service Fabric cluster resources created or in the process of being created in the subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clusters_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ClusterVersions_List": {
+            "main": "./lib/actions/ClusterVersions_List.js",
+            "title": "Gets the list of Service Fabric cluster code versions available for the specified location.",
+            "description": "Gets all available code versions for Service Fabric cluster resources by location.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ClusterVersions_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ClusterVersions_Get": {
+            "main": "./lib/actions/ClusterVersions_Get.js",
+            "title": "Gets information about a Service Fabric cluster code version available in the specified location.",
+            "description": "Gets information about an available Service Fabric cluster code version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ClusterVersions_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ClusterVersions_ListByEnvironment": {
+            "main": "./lib/actions/ClusterVersions_ListByEnvironment.js",
+            "title": "Gets the list of Service Fabric cluster code versions available for the specified environment.",
+            "description": "Gets all available code versions for Service Fabric cluster resources by environment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ClusterVersions_ListByEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ClusterVersions_GetByEnvironment": {
+            "main": "./lib/actions/ClusterVersions_GetByEnvironment.js",
+            "title": "Gets information about a Service Fabric cluster code version available for the specified environment.",
+            "description": "Gets information about an available Service Fabric cluster code version by environment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ClusterVersions_GetByEnvironment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clusters_Delete": {
+            "main": "./lib/actions/Clusters_Delete.js",
+            "title": "Deletes a Service Fabric cluster resource.",
+            "description": "Delete a Service Fabric cluster resource with the specified name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clusters_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clusters_Get": {
+            "main": "./lib/actions/Clusters_Get.js",
+            "title": "Gets a Service Fabric cluster resource.",
+            "description": "Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clusters_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clusters_Update": {
+            "main": "./lib/actions/Clusters_Update.js",
+            "title": "Updates the configuration of a Service Fabric cluster resource.",
+            "description": "Update the configuration of a Service Fabric cluster resource with the specified name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clusters_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clusters_Create": {
+            "main": "./lib/actions/Clusters_Create.js",
+            "title": "Creates or updates a Service Fabric cluster resource.",
+            "description": "Create or update a Service Fabric cluster resource with the specified name.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clusters_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Clusters_ListByResourceGroup": {
+            "main": "./lib/actions/Clusters_ListByResourceGroup.js",
+            "title": "Gets the list of Service Fabric cluster resources created in the specified resource group.",
+            "description": "Gets all Service Fabric cluster resources created or in the process of being created in the resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Clusters_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

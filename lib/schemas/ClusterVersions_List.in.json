@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "2018-02-01"
+            ],
+            "default": "2018-02-01"
+        }
+    }
+}
