@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the ServiceFabricManagementClient API (version 2018-02-01).
 
 Generated from: https://api.apis.guru/v2/specs/azure.com/servicefabric-cluster/2018-02-01/swagger.json<br/>
-Generated at: 2019-05-07T17:38:58+03:00
+Generated at: 2019-06-11T18:14:18+03:00
 
 ## API Description
 
